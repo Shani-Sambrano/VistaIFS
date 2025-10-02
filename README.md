@@ -79,6 +79,14 @@ If you’d like to suggest improvements, feel free to fork the repo and open a p
 
 
 
+## 📜 License
+This project is licensed under a **Proprietary License**.  
+All rights are reserved. You may not copy, modify, or distribute this code without prior written consent.  
+
+For licensing inquiries, please contact:  
+📧 [S.Sambrano@MariniaGroup.com](mailto:S.Sambrano@MariniaGroup.com)
+
+
 ---
 
 
