@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letter of Engagement – Draft</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .doc { max-width: 800px; margin: 20px auto; padding: 30px; background: #fff; border:1px solid #e5e7eb; border-radius: 12px;}
+    .doc h1 { font-size: 28px; margin: 0 0 8px; }
+    .doc h2 { font-size: 18px; margin-top: 18px; }
+    .muted { color:#64748b; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-wrap">
+      <img src="../assets/Vista_logo.png" alt="Vista logo" onclick="window.location.href='../index.html'" style="cursor:pointer">
+      <div class="brand">Vista Insurance & Financial Services</div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Back to Onboarding</a>
+      <button class="btn" onclick="window.print()">Print/Save PDF</button>
+          <a href="https://Calendly.com/S-Sambrano" target="_blank" class="btn secondary">Book a call</a>
+    </nav>
+  </header>
+
+  <main class="doc">
+    <h1>Letter of Engagement (Draft)</h1>
+    <div class="muted" id="meta"></div>
+
+    <p>This draft auto-fills the basics from your intake so you can quickly generate a PDF. The full legal terms are in our DOCX version.</p>
+
+    <h2>Parties</h2>
+    <p><strong>Client:</strong> <span id="company"></span><br>
+       <strong>Contact:</strong> <span id="contact"></span> • <span id="email"></span></p>
+
+    <h2>Scope of services</h2>
+    <ul>
+      <li>Bookkeeping — monthly close and reconciliations</li>
+      <li>Payroll — processing, filings, W‑2/1099</li>
+      <li>Compliance support — FLSA/OSHA/ERISA/COBRA/FMLA resources</li>
+    </ul>
+
+    <h2>Fees</h2>
+    <p>Package: <strong id="package"></strong><br>
+       Billing: monthly, auto-debit when authorized.</p>
+
+    <h2>Term</h2>
+    <p>Month-to-month with anniversary billing. Either party may terminate with written notice per the DOCX terms.</p>
+
+    <h2>Client responsibilities</h2>
+    <ul>
+      <li>Provide timely and accurate information and access.</li>
+      <li>Add Vista to your QuickBooks Online company (invite <strong>S.Sambrano@MariniaGroup.com</strong>).</li>
+      <li>Review deliverables and notify us of discrepancies within 10 days.</li>
+    </ul>
+
+    <h2>Acceptance</h2>
+    <p>By signing below, Client agrees to engage Vista Insurance & Financial Services per the scope and fee structure above and the standard terms in the DOCX Letter of Engagement.</p>
+
+    <p style="margin-top:40px">
+      <strong>Client representative</strong><br><br>
+      Signature: ____________________________   Date: _____________<br><br>
+      Name & Title: _________________________
+    </p>
+
+    <p class="muted" style="margin-top:24px">This PDF is for convenience and does not replace our full Letter of Engagement document.</p>
+  </main>
+
+<script>
+  (function(){
+    const data = JSON.parse(localStorage.getItem('vista_onboarding')||'{}');
+    function set(id, v){ var el = document.getElementById(id); if (el) el.textContent = v || ''; }
+    set('company', data.company || '');
+    set('contact', data.contact || '');
+    set('email', data.email || '');
+    set('package', data.package || '');
+    document.getElementById('meta').textContent = new Date().toLocaleString();
+  })();
+</script>
+<script src="/assets/lead-consent.js" defer></script>
+</body>
+</html>

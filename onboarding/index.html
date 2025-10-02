@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onboarding – Vista Insurance & Financial Services</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-wrap">
+      <img src="../assets/Vista_logo.png" alt="Vista Insurance and Financial Services logo" onclick="window.location.href='../index.html'" style="cursor:pointer">
+      <div class="brand">Vista Insurance & Financial Services</div>
+    </div>
+    <nav class="nav">
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#about">About Us</a>
+      <a href="../index.html#resources">Compliance Links</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="index.html" class="btn">Onboarding</a>
+    </nav>
+  </header>
+<main>
+  <section class="blog-hero container">
+    <div class="kicker">Get started</div>
+    <h1>Client Onboarding</h1>
+    <p style="color:#475569;max-width:800px">Complete the quick intake below, then download your onboarding kit. You can review & sign the Letter of Engagement and Payment Authorization, and return them with any requested documents. If you prefer, we’ll walk you through this on a call.</p>
+  </section>
+
+  <section class="section container">
+    <div class="stepper">
+      <div class="step active" id="s1dot">1) Company</div>
+      <div class="step" id="s2dot">2) Payroll</div>
+      <div class="step" id="s3dot">3) Billing</div>
+      <div class="step" id="s4dot">4) Review & Send</div>
+    </div>
+
+    <form class="form" id="onbForm">
+      <!-- Step 1 -->
+      <div id="step1">
+        <h3>Company info</h3>
+        <div class="row">
+          <div>
+            <label>Legal business name</label>
+            <input name="company" required>
+          </div>
+          <div>
+            <label>Doing business as (optional)</label>
+            <input name="dba">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Primary contact name</label>
+            <input name="contact" required>
+          </div>
+          <div>
+            <label>Contact email</label>
+            <input name="email" type="email" required>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Phone</label>
+            <input name="phone">
+          </div>
+          <div>
+            <label>Business address</label>
+            <input name="address">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Choose your package</label>
+            <select name="package">
+              <option value="Essential">Essential</option>
+              <option value="Pro">Pro</option>
+              <option value="Executive">Executive</option>
+            </select>
+          </div>
+          <div>
+            <label>Estimated monthly transactions</label>
+            <input name="tx_count" placeholder="e.g., 250">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step2" style="display:none">
+        <h3>Payroll details</h3>
+        <div class="row">
+          <div>
+            <label>Pay frequency</label>
+            <select name="frequency">
+              <option>Biweekly</option>
+              <option>Semi-monthly</option>
+              <option>Weekly</option>
+              <option>Monthly</option>
+            </select>
+          </div>
+          <div>
+            <label>Next target pay date</label>
+            <input name="next_pay_date" type="date">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Employee count</label>
+            <input name="emp_count" type="number" min="1" step="1">
+          </div>
+          <div>
+            <label>States of payroll</label>
+            <input name="states" placeholder="e.g., CA, AZ">
+          </div>
+        </div>
+        <div>
+          <label>Notes/benefits/garnishments we should know about</label>
+          <textarea name="notes" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step3" style="display:none">
+        <h3>Billing authorization basics</h3>
+        <p class="notice">For security, <strong>do not send full bank/card numbers via this form</strong>. In the Payment Authorization you can provide last 4 and we’ll collect full details securely.</p>
+        <div class="row">
+          <div>
+            <label>Preferred payment method</label>
+            <select name="pay_method">
+              <option>ACH (bank)</option>
+              <option>Credit/Debit card</option>
+            </select>
+          </div>
+          <div>
+            <label>Billing email (if different)</label>
+            <input name="billing_email" type="email">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Billing contact name</label>
+            <input name="billing_contact">
+          </div>
+          <div>
+            <label>OK to auto-debit monthly fees</label>
+            <select name="autopay_ok">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div id="step4" style="display:none">
+        <h3>Review</h3>
+        <div class="summary" id="summaryBox"></div>
+        <div class="notice">By continuing, you acknowledge our standard <em>Letter of Engagement — Bookkeeping & Payroll</em> and authorize us to prepare your onboarding steps. This is not an e-signature. Final signatures are captured in the downloadable forms or our secure e-sign flow.</div>
+      </div>
+
+      <div class="toolbar">
+        <button type="button" id="prevBtn" class="btn secondary">Back</button>
+        <button type="button" id="nextBtn" class="btn">Next</button>
+        <button type="button" id="printBtn" class="btn" style="display:none">Print/Save Intake as PDF</button>
+        <a id="mailtoBtn" class="btn secondary" style="display:none" href="#">Email Intake to Vista</a>
+      </div>
+    </form>
+  </section>
+
+  <section class="section container">
+    <h2 style="margin:0 0 12px">Download your onboarding kit</h2>
+    <p class="notice">Want a quick PDF draft of your Letter of Engagement with your info? Click <a href="loe-preview.html" class="btn secondary">Generate LOE PDF</a> (print-to-PDF from your browser). A server-generated PDF option is also available.</p>
+    <div class="downloads">
+      <a class="btn" href="../assets/VistaIFS_Onboarding_Kit.zip">Download complete kit (ZIP)</a>
+      <a class="btn secondary" href="../assets/Flat_Rate_Value_Pricing.pdf" target="_blank">View Pricing (PDF)</a>
+      <a class="btn" href="../assets/VistaIFS_Letter_of_Engagement_v6_anniversary-billing.docx">Letter of Engagement (DOCX)</a>
+      <a class="btn secondary" href="../assets/VistaIFS_Payment_Authorization_Form_v2.docx">Payment Authorization (DOCX)</a>
+      <a class="btn" href="../assets/VistaIFS_Payroll_Policy_Template.docx">Payroll Policy Template (DOCX)</a>
+    </div>
+    <p class="notice" style="margin-top:10px">Send signed documents and any requested files to <a href="mailto:S.Sambrano@MariniaGroup.com">S.Sambrano@MariniaGroup.com</a>. A secure upload portal will be available soon.</p>
+  </section>
+
+  <section class="section container">
+    <h2 style="margin:0 0 12px">Requirements to get started</h2>
+    <ul class="checklist">
+      <li>Legal business name, EIN, business address, and primary contact.</li>
+      <li>QuickBooks Online access (or sign up below) and invite us as your accountant.</li>
+      <li>Payroll details: pay frequency, next pay date, employee count, and states.</li>
+      <li>Prior payroll reports (last quarter) and year-to-date totals (if switching mid‑year).</li>
+      <li>Benefits & deductions info (health, HSA/FSA, garnishments, etc.).</li>
+      <li>Banking details for ACH billing (we’ll collect full info securely after intake).</li>
+    </ul>
+    <div style="margin-top:10px" class="callout">Have everything handy? You can still start now and attach documents later—no problem.</div>
+  </section>
+
+  <section class="section container">
+    <h2 style="margin:0 0 12px">Add us to your QuickBooks</h2>
+    <ol class="checklist">
+      <li>In QuickBooks Online, go to <strong>Settings ⚙ → Manage users → Accounting firms</strong>.</li>
+      <li>Click <strong>Invite</strong> and enter <strong>S.Sambrano@MariniaGroup.com</strong> as the email.</li>
+      <li>Leave a note (company name + “Vista IFS onboarding”).</li>
+      <li>Click <strong>Send</strong>. We’ll accept and connect your file.</li>
+    </ol>
+    <p style="margin-top:8px">
+      Not on QuickBooks yet? <a class="btn" href="https://quickbooks.intuit.com/quickbooks/online/" target="_blank" rel="noopener">Get QuickBooks Online</a>
+    </p>
+  </section>
+
+  <section class="section container">
+    <h2 style="margin:0 0 12px">FAQs</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Is this a binding agreement?</h3>
+        <p>The intake just collects details. The engagement becomes official when you sign the Letter of Engagement and Payment Authorization.</p>
+      </div>
+      <div class="card">
+        <h3>How do you handle sensitive info?</h3>
+        <p>We never ask for full bank/card numbers via web form. After intake, we’ll use a secure method to collect them.</p>
+      </div>
+      <div class="card">
+        <h3>What if I’m mid‑year?</h3>
+        <p>No problem. Provide most recent payroll reports and year-to-date totals; we’ll handle the transition.</p>
+      </div>
+      <div class="card">
+        <h3>Can I upload documents?</h3>
+        <p>Today you can email them. If you prefer uploads, ask us and we’ll enable our secure portal.</p>
+      </div>
+      <div class="card">
+        <h3>When will my first payroll run?</h3>
+        <p>Typically within 5–7 business days after we receive complete info and access to your systems.</p>
+      </div>
+      <div class="card">
+        <h3>Do you support multiple states?</h3>
+        <p>Yes. We’ll register as needed and set up each state’s payroll accounts.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section container">
+    <h2 style="margin:0 0 12px">Secure document upload</h2>
+    <p class="notice">Upload uses a one-time, pre-signed URL direct to our private S3 bucket. Files never pass through email. (If the button is disabled, uploads aren’t enabled yet—email files to <a href="mailto:S.Sambrano@MariniaGroup.com">S.Sambrano@MariniaGroup.com</a>.)</p>
+    <div class="form">
+      <div class="row">
+        <div>
+          <label>Choose file</label>
+          <input type="file" id="fileInput" />
+        </div>
+        <div>
+          <label>File description (optional)</label>
+          <input id="fileNote" placeholder="e.g., Voided check, prior payroll report">
+        </div>
+      </div>
+      <button type="button" class="btn" id="uploadBtn">Secure upload</button>
+      <div id="uploadStatus" class="notice"></div>
+    </div>
+  </section>
+
+  <section class="section container" id="cta-band">
+    <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+      <div>
+        <h3 style="margin:0 0 6px">Ready to get started?</h3>
+        <p style="margin:0;color:#475569">Let us handle your bookkeeping & payroll so you can run the business.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="../onboarding/index.html">Start onboarding</a>
+        <span class="muted" style="opacity:.8">or</span>
+        <a class="btn secondary" target="_blank" href="https://Calendly.com/S-Sambrano">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">© 2025 Vista Insurance & Financial Services • A Marinia Group Company</footer>
+
+<script>
+(function() {
+  const form = document.getElementById('onbForm');
+  // Configure where submissions go:
+  const FORMS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxwHLMkGEuDYy-WH4r6y_q4R56PQD8Kmau5971LOmH-1rL9kdjPeVwpNcaZWhewYawa/exec"; // Google Apps Script URL or your API
+  const MODE = "google"; // 'google' or 'postgres'
+  // Configure secure uploads (S3 pre-signed URL producer)
+  const UPLOADS_ENDPOINT = window.UPLOADS_ENDPOINT || ""; // e.g., https://api.vistaifs.com/presign
+  // Configure server-generated docs (optional Lambda)
+  const DOCS_ENDPOINT = window.DOCS_ENDPOINT || ""; // e.g., https://api.vistaifs.com/loe
+  const steps = [document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3'), document.getElementById('step4')];
+  const dots = [document.getElementById('s1dot'), document.getElementById('s2dot'), document.getElementById('s3dot'), document.getElementById('s4dot')];
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const printBtn = document.getElementById('printBtn');
+  const mailtoBtn = document.getElementById('mailtoBtn');
+  const summaryBox = document.getElementById('summaryBox');
+  let i = 0;
+
+  function show(n) {
+    steps.forEach((el, idx)=> el.style.display = idx===n ? '' : 'none');
+    dots.forEach((el, idx)=> el.classList.toggle('active', idx===n));
+    prevBtn.style.display = n===0 ? 'none' : '';
+    nextBtn.textContent = n===steps.length-1 ? 'Finish' : 'Next';
+    printBtn.style.display = n===steps.length-1 ? '' : 'none';
+    mailtoBtn.style.display = n===steps.length-1 ? '' : 'none';
+  }
+  function values() {
+    const data = new FormData(form);
+    const obj = {};
+    for (const [k,v] of data.entries()) obj[k]=v;
+    obj.timestamp = new Date().toISOString();
+    return obj;
+  }
+  function buildSummary() {
+    const v = values();
+    const rows = Object.entries(v).map(([k,val]) => `<tr><td style='padding:6px 8px;border-bottom:1px solid #eef2f7'><strong>${k}</strong></td><td style='padding:6px 8px;border-bottom:1px solid #eef2f7'>${val}</td></tr>`).join('');
+    summaryBox.innerHTML = `<table style='width:100%;border-collapse:collapse'>${rows}</table>`;
+    const subject = encodeURIComponent(`Onboarding Intake — ${v.company||'Client'}`);
+    const body = encodeURIComponent(Object.entries(v).map(([k,val]) => `${k}: ${val}`).join('\n'));
+    mailtoBtn.href = `mailto:S.Sambrano@MariniaGroup.com?subject=${subject}&body=${body}`;
+    localStorage.setItem('vista_onboarding', JSON.stringify(v));
+  }
+
+  nextBtn.addEventListener('click', ()=> {
+    if (i<steps.length-1) {
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      i++;
+      if (i===steps.length-1) buildSummary();
+      show(i);
+    } else {
+      buildSummary();
+      alert('All set! Use the buttons below to print/save your intake and email it to Vista. Then download and sign the onboarding kit.');
+    }
+  });
+  prevBtn.addEventListener('click', ()=> { if (i>0) show(--i); });
+  printBtn.addEventListener('click', ()=> window.print());
+
+  // Prefill from localStorage if available
+  try {
+    const saved = JSON.parse(localStorage.getItem('vista_onboarding')||'null');
+    if (saved) {
+      [...form.elements].forEach(el=> { if (el.name && saved[el.name]) el.value = saved[el.name]; });
+    }
+  } catch(e){}
+
+  show(0);
+
+  // Secure upload handler
+  const fileInput = document.getElementById('fileInput');
+  const uploadBtn = document.getElementById('uploadBtn');
+  const uploadStatus = document.getElementById('uploadStatus');
+  if (!UPLOADS_ENDPOINT) { uploadBtn.disabled = true; uploadStatus.textContent = 'Uploads are not enabled yet.'; }
+  uploadBtn?.addEventListener('click', async () => {
+    const f = fileInput.files?.[0];
+    if (!f) { alert('Choose a file first.'); return; }
+    uploadStatus.textContent = 'Requesting secure upload link…';
+    try {
+      const res = await fetch(UPLOADS_ENDPOINT + '?filename=' + encodeURIComponent(f.name) + '&type=' + encodeURIComponent(f.type||'application/octet-stream'));
+      if (!res.ok) throw new Error('presign failed');
+      const { url, fields, objectUrl } = await res.json();
+      const formData = new FormData();
+      Object.entries(fields).forEach(([k,v])=> formData.append(k,v));
+      formData.append('file', f);
+      const s3 = await fetch(url, { method:'POST', body: formData });
+      if (s3.ok) {
+        uploadStatus.innerHTML = 'Uploaded ✔ ' + (objectUrl ? ('<a target="_blank" href="'+objectUrl+'">View</a>') : '');
+      } else {
+        throw new Error('upload failed');
+      }
+    } catch(e) {
+      uploadStatus.textContent = 'Upload failed. Please email the file instead.';
+    }
+  });
+
+})();
+</script>
+<script src="/assets/lead-consent.js" defer></script>
+</body>
+</html>

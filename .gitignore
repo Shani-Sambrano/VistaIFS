@@ -1,0 +1,30 @@
+ # Ignore deployment archives
+*.zip
+
+# Ignore OS/system files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Ignore temporary/editor files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Ignore IDE/workspace settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Node/npm (in case you add build tools later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python cache (if ever used)
+__pycache__/
+*.py[cod]
+
