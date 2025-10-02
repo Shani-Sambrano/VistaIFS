@@ -2,7 +2,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/Shani-Sambrano/VistaIFS?color=blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Shani-Sambrano/VistaIFS?color=green)
 ![GitHub stars](https://img.shields.io/github/stars/Shani-Sambrano/VistaIFS?style=social)
-![License](https://img.shields.io/badge/License-Proprietary-red)
+![License](https://img.shields.io/badge/License-Proprietary-red)](./LICENSE)
+
 
 # Vista Insurance & Financial Services Website
 
