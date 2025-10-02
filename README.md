@@ -1,6 +1,10 @@
-\# Vista Insurance \& Financial Services Website
+![AWS Amplify](https://img.shields.io/badge/Hosted%20on-AWS%20Amplify-orange?logo=amazonaws&logoColor=white)
+![GitHub repo size](https://img.shields.io/github/repo-size/Shani-Sambrano/VistaIFS?color=blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/Shani-Sambrano/VistaIFS?color=green)
+![GitHub stars](https://img.shields.io/github/stars/Shani-Sambrano/VistaIFS?style=social)
+![License](https://img.shields.io/badge/License-Proprietary-red)
 
-
+# Vista Insurance & Financial Services Website
 
 This repository contains the source code for the \*\*Vista Insurance \& Financial Services\*\* website, hosted on AWS Amplify.  
 
